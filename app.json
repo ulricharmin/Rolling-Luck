@@ -1,18 +1,22 @@
 {
   "expo": {
-    "name": "Rolling-Luck",
+    "name": "Rolling Luck",
     "slug": "Rolling-Luck",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
+    "android": {
+      "package": "com.abumdev.rollingluck",
+      "versionCode": 1
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -23,6 +27,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }

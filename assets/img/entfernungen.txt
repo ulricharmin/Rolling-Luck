@@ -1,0 +1,5 @@
+            nach unten: nach oben: nach rechts: nach links:
+spin button:  6pxl         302pxl     18pxl         15pxl
+werbe button: 348pxl       526pxl     183pxl        15pxl
+shop button:  477pxl       13pxl      183pxl        15pxl
+cs button:    348pxl       13pxl      18pxl         179pxl
