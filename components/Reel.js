@@ -1,7 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Component } from 'react';
 import { View, StyleSheet, Text, Animated, Easing } from 'react-native';
 import Constants from '../Constants';
 import Symbol from './Symbol'
+
+import { connect } from 'react-redux';
+import { updateSpinner } from '../redux/reducers/spinner';
 
 export default class Reel extends PureComponent {
   constructor(props) {
@@ -18,6 +21,7 @@ export default class Reel extends PureComponent {
       scrollPos: new Animated.Value(this.currentScrollPos)
     }
   }
+
 
   highlightAtIndex = (index, highlight) => {
     this.symbolRefs[this.position + index].setActive(highlight);

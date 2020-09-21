@@ -2,11 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6becf16-261c-40cb-999a-a3296f9a446d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/Shop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Slots.js" beforeDir="false" afterPath="$PROJECT_DIR$/Slots.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/splash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Desktop.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Images.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/Images.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/Homescreen.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/Homescreen/Homescreen/Homescreen@x3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/ad_button.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ad_button.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/ad_button_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ad_button_pressed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/amazon_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/amazon_button_pressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/backgrnd.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/backgrnd.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/bell.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/bottomBar.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/bottomBar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/buttonBetMinus.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/buttonBetMinus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/buttonBetPlus.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/buttonBetPlus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_cs.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_cs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_cs_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_cs_pressed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_home.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_home_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_home_pressed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_info.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_info.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_info_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_info_pressed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_shop.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_shop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_shop_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_shop_pressed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_slots.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_slots.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_slots_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_slots_pressed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_sound.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_sound.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/button_sound_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_sound_pressed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/cherry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/diamond.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/diamond.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/gp_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/gp_button_pressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/grape.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/home_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/home_background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/home_background@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/home_background@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/lemon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/melone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/orange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/plum.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/ps_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/ps_button_pressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/seven.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/spinButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/spinButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/spinButtonInactive.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/spinButtonInactive.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/spinButtonPushed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/spinButtonPushed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/topBar.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/topBar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/topBar@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/topBar@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/whitejeton.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/whitejeton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/xbox_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/xbox_button_pressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AdMobRewardedComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/AdMobRewardedComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Reel.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Reel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ReelSet.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ReelSet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Symbol.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Symbol.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/reducers/coins.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/reducers/coins.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/store/store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +83,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Home.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -32,10 +96,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1050" />
+    <option name="x" value="950" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -88,10 +151,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1552" height="840" extended-state="0" />
+    <frame x="760" y="0" width="784" height="832" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21188119" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25033468" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -112,7 +175,11 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Home.js">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

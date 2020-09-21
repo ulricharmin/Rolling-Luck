@@ -30,9 +30,8 @@ class Home extends PureComponent {
     return (
       <View style={styles.container}>
       <StatusBar hidden={true} />
-        <Image style={styles.backgroundImage} source={Images.homeBackground} resizeMode="stretch" />
+        <Image style={styles.backgroundImage} source={Images.homeBackground} resizeMode="cover" />
           <View style={styles.box}>
-            <Text>{this.state.credits}</Text>
             <TouchableButton style={styles.buttonSlots} image="buttonSlots" onPress={() => this.props.navigation.navigate('Slots')} />
             <TouchableButton style={styles.buttonShop} image="buttonShop" onPress={() => this.props.navigation.navigate('Shop')} />
             <TouchableButton style={styles.buttonCS} image="buttonCS"/>
@@ -53,6 +52,10 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0
+  },
+  coinValue: {
+    position: 'absolute',
+    top: moderateScale(5)
   },
   box: {
     position: 'absolute',

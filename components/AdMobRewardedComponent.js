@@ -5,41 +5,55 @@ import TouchableButton from './TouchableButton';
 import Constants from '../Constants';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
-export default class AdMobRewardedComponent extends Component {
+import { connect } from 'react-redux';
+import { updateCoins } from '../redux/reducers/coins';
+
+class AdMobRewardedComponent extends Component {
 state = {
-loadedAd: false
+loadedAd: false,
+credits: this.props.coins.coins
 };
 
-async componentDidMount() {
-  await setTestDeviceIDAsync("EMULATOR");
-  AdMobRewarded.setAdUnitID("ca-app-pub-3940256099942544/5224354917");
+ createAndLoadRewardedAd = async () => {
+    await setTestDeviceIDAsync("EMULATOR");
+    AdMobRewarded.setAdUnitID("ca-app-pub-3940256099942544/5224354917");
 
-  AdMobRewarded.addEventListener("rewardedVideoDidLoad", () => {
-  console.log("VideoLoaded")
-  });
-  AdMobRewarded.addEventListener("rewardedVideoDidFailToLoad", () =>
-  console.log("FailedToLoad")
-  );
-  AdMobRewarded.addEventListener("rewardedVideoDidOpen", () =>
-  console.log("Opened")
-  );
-  AdMobRewarded.addEventListener("rewardedVideoDidClose", () => {
-    loadAd(request.build());
-  console.log("Closed")
-  });
-  AdMobRewarded.addEventListener("rewardedVideoWillLeaveApplication", () =>
-  console.log("LeaveApp")
-  );
-  AdMobRewarded.addEventListener("rewardedVideoDidStart", () =>
-  console.log("Started")
-  );
-  AdMobRewarded.addEventListener("rewardedVideoDidRewardUser", () =>
-  console.log("Rewarded"),
-  );
-  await AdMobRewarded.requestAdAsync();
+    AdMobRewarded.addEventListener("rewardedVideoDidLoad", () => {
+      this.setState({ loadedAd: true })
+    console.log("VideoLoaded")
+    });
+    AdMobRewarded.addEventListener("rewardedVideoDidFailToLoad", () =>
+    console.log("FailedToLoad")
+    );
+    AdMobRewarded.addEventListener("rewardedVideoDidOpen", () =>
+    console.log("Opened")
+    );
+    AdMobRewarded.addEventListener("rewardedVideoDidClose", () => {
+      AdMobRewarded.requestAdAsync();
+      console.log("Closed")
+    });
+    AdMobRewarded.addEventListener("rewardedVideoWillLeaveApplication", () =>
+    console.log("LeaveApp")
+    );
+    AdMobRewarded.addEventListener("rewardedVideoDidRewardUser", () =>
+    console.log("Rewarded"),
+    this.setState({
+      credits: this.state.credits + 30 
+      },() => {
+        this.props.dispatch(updateCoins(this.state.credits))
+      }),
+    );
+    await AdMobRewarded.requestAdAsync();
+}
+
+
+async componentDidMount() {
+  this.setState({ loadedAd: true })
+  this.createAndLoadRewardedAd();
 }
 
 componentWillUnmount() {
+  this.setState({ loadedAd: false })
   AdMobRewarded.removeAllListeners();
 }
 
@@ -50,7 +64,7 @@ _handlePress = async () => {
 render() {
   const { loadedAd } = this.state;
   return (
-  <TouchableButton onPress={this._handlePress} title="Coins erhalten!" image="adButton" status="active" style={styles.adButton}/>
+  <TouchableButton onPress={this._handlePress} image="adButton" inactive={!this.state.loadedAd} style={styles.adButton} resizeMode="stretch" />
     );
   }
 };
@@ -67,9 +81,14 @@ const styles = StyleSheet.create({
     top: verticalScale(158),
     width: moderateScale(161),
     height: verticalScale(120),
-    padding: scale(10),
   },
 });
+
+const mapStateToProps = state => ({
+  coins: state.coins
+});
+
+export default connect(mapStateToProps)(AdMobRewardedComponent);
 
 // MyUnitID ca-app-pub-6019783880494970/7765357807
 // TestUnitID ca-app-pub-3940256099942544/5224354917

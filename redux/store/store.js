@@ -8,7 +8,7 @@ import rootReducer from '../reducers';
 
 const persistConfig = {
   // key: 'root',
-  key: 'coins',
+  key: 'toor',
   storage: AsyncStorage
 }
 
