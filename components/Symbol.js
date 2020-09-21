@@ -15,38 +15,38 @@ export default class Symbol extends PureComponent {
 
   getImage = () => {
     switch(this.props.symbol){
-      case "7":
-        return Images.seven;
-        break;
-      case "B":
-        return Images.bell;
+      case "H":
+        return Images.heart;
         break;
       case "D":
         return Images.diamond;
         break;
+      case "C":
+        return Images.club;
+        break;
       case "W":
         return Images.whitejeton;
         break;
-      case "O":
-        return Images.orange;
+      case "A":
+        return Images.a;
         break;
-      case "M":
-        return Images.melon;
+      case "K":
+        return Images.k;
         break;
-      case "C":
-        return Images.cherry;
+      case "T":
+        return Images.ten;
         break;
-      case "G":
-        return Images.grape;
+      case "Q":
+        return Images.q;
         break;
-      case "L":
-        return Images.lemon;
+      case "J":
+        return Images.j;
         break;
-      case "P":
-        return Images.plum;
+      case "S":
+        return Images.spades;
         break;
       default:
-        return Images.orange;
+        return Images.a;
     }
   }
 

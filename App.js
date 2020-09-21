@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
-import { StyleSheet, Text, View, Animated, Easing } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from 'react-navigation-stack';
-import { flipX } from 'react-navigation-transitions';
-import SplashScreen from 'react-native-splash-screen'
+import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
 import Home from './Home';
 import Slots from './Slots';
 import Shop from './Shop';
@@ -12,9 +10,26 @@ import { createStore } from 'redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store/store';
 import { Audio } from 'expo';
+import * as Font from 'expo-font';
 
 
 export default class App extends PureComponent {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      fontLoaded: false
+    }
+  }
+
+  async componentDidMount() {
+
+    await Font.loadAsync({
+      'Impact': require('./assets/fonts/impact.ttf')
+    });
+    
+    this.setState({ fontLoaded: true });
+  }
 
   render() {
 
@@ -27,6 +42,7 @@ export default class App extends PureComponent {
     )
   }
 }
+
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -43,6 +59,10 @@ const AppNavigator = createStackNavigator({
 
 },{
         initialRouteName: "Home",
+        headerMode: 'none',
+        defaultNavigationOptions: {
+          ...TransitionPresets.SlideFromRightIOS
+        }
 });
 
 const AppContainer = createAppContainer(AppNavigator);

@@ -1,20 +1,18 @@
 import React, {PureComponent} from 'react';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import { StyleSheet, Button, View, SafeAreaView, Image, Navigator, Vibration, Text, StatusBar, Dimensions } from 'react-native';
+import { StyleSheet, View, Image, StatusBar, ActivityIndicator, Text } from 'react-native';
 import Constants from './Constants';
 import ReelSet from './components/ReelSet';
 import Images from './assets/Images';
 import TouchableButton from './components/TouchableButton';
 import TouchableSwitch from './components/TouchableSwitch';
-import Modal from 'react-native-modal';
 import Loader from './components/Loader';
 import PopUp from './components/PopUp';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
-import { useFonts } from '@use-expo/font';
+import * as Font from 'expo-font';
 
 import { connect } from 'react-redux';
 import { updateCoins } from './redux/reducers/coins';
+import { updateSpinner } from './redux/reducers/spinner';
 
 
 class Slots extends PureComponent {
@@ -27,11 +25,21 @@ class Slots extends PureComponent {
       bet: 10,
       spinButtonActive: true,
       credits: this.props.coins.coins,
-      loaderVisible: false,
+      spinner: false,
       popupVisible: false,
       betMinusButtonActive: true,
-      betPlusButtonActive: true
+      betPlusButtonActive: true,
+      fontLoaded: false
     }
+  }
+
+  async componentDidMount() {
+
+    await Font.loadAsync({
+      'Impact': require('./assets/fonts/impact.ttf')
+    });
+    
+    this.setState({ fontLoaded: true });
   }
 
   spin = () => {
@@ -81,21 +89,19 @@ class Slots extends PureComponent {
     });
   }
 
-
-
   render() {
-    const {loaderVisible, popupVisible} = this.state;
+    const {spinner, popupVisible} = this.state;
     return (
       <View style={styles.container}>
       <StatusBar hidden={true} />
-          <Image style={styles.backgroundImage} source={Images.background} resizeMode="stretch" />
+         
           <View style={styles.topBar}>
-            <Image style={styles.backgroundTopBar} source={Images.backgroundTop} resizeMode="stretch" />
+            <Image style={styles.backgroundTopBar} source={Images.backgroundTop}/>
             <TouchableSwitch status="active" style={styles.buttonSound} image="buttonSound" />
             <TouchableButton status="active" onPress={() => this.props.navigation.navigate('Home')} style={styles.buttonHome} image="buttonHome"  />
             <TouchableButton status="active" style={styles.buttonInfo} image="buttonInfo" />
           </View>
-          <Image style={styles.mainBackground} source={Images.mainBackground} reziseMode="stretch" />
+          <Image style={styles.mainBackground} source={Images.mainBackground} resizeMode="stretch" />
           <View style={styles.main}>
             <View style={styles.mainBox}>
               <ReelSet ref={(ref) => {this.reelSet = ref;}} onReady={this.onReelsetReady} />
@@ -104,7 +110,12 @@ class Slots extends PureComponent {
           <View style={styles.bottomBar}>
               <Image style={styles.backgroundBottomBar} source={Images.backgroundBottom} resizeMode="stretch" />
               <TouchableButton onPress={this.spin} style={styles.buttonSpin} inactive={!this.state.spinButtonActive} image="buttonSpin" />
-              <Text style={this.creditValue}>{this.state.credits}</Text>
+              
+              {this.state.fontLoaded?
+                <Text style={styles.creditValue}>{this.state.credits}</Text>
+                : (
+                <ActivityIndicator size="large" />
+                )}
             
             <View style={styles.betContainer}>
               <TouchableButton
@@ -114,8 +125,13 @@ class Slots extends PureComponent {
                 image="buttonBetMinus" />
 
               <View styles={styles.betDisplayContainer}>
-                <Text style={styles.betTitle}>BET</Text>
-                <Text style={styles.betValue}>{this.state.bet}</Text>
+              {this.state.fontLoaded?
+                                <Text style={styles.betTitle}>BET</Text>
+                : (
+                <ActivityIndicator size="large" />
+                )}
+
+              <Text style={styles.betValue}>{this.state.bet}</Text>
               </View>
 
               <TouchableButton
@@ -126,7 +142,7 @@ class Slots extends PureComponent {
             </View>
 
           </View>
-          <Loader modalVisible={loaderVisible} animationType="fade" />
+          <Loader modalVisible={spinner} animationType="fade" />
           <PopUp modalVisible={popupVisible} />
       </View>
     );
@@ -136,6 +152,7 @@ class Slots extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    resizeMode: 'contain'
   },
   backgroundImage: {
     width: Constants.MAX_WIDTH,
@@ -147,48 +164,45 @@ const styles = StyleSheet.create({
     right: 0
   },
   topBar: {
-    width: Constants.MAX_WIDTH,
-    height: verticalScale(200),
-    justifyContent: 'center'
+    height: verticalScale(255),
+    width: '100%'
   },
   backgroundTopBar: {
-    position: 'absolute',
-    width: Constants.MAX_WIDTH,
-    height: verticalScale(200),
-  },
+    resizeMode: 'cover',
+    width: '100%',
+    height: '100%'
+  }, 
   mainBox: {
     position: 'absolute',
     width: scale(300),
     height: scale(175),
-    alignSelf: 'center'
+    alignSelf: 'center',
+    justifyContent: 'center'
   },
   main: {
     width: scale(305),
     height: scale(237),
     padding: scale(10),
-    justifyContent: 'center',
-    alignSelf: 'center'
+    top: verticalScale(25),
+    alignSelf: 'center',
   },
   mainBackground: {
     position: 'absolute',
     width: scale(350),
-    height: scale(235),
+    height: scale(245),
     resizeMode: 'stretch',
-    top: verticalScale(200),
+    top: verticalScale(238),
     zIndex: 1
   },
   bottomBar: {
     width: Constants.MAX_WIDTH,
-    height: scale(240),
-    justifyContent: 'center',
-    resizeMode: 'stretch'
+    height: scale(255),
+    justifyContent: 'center'
   },
   backgroundBottomBar: {
-    position: 'absolute',
-    width: Constants.MAX_WIDTH,
-    height: scale(290),
-    justifyContent: 'center',
-    resizeMode: 'stretch'
+    resizeMode: 'cover',
+    width: '100%',
+    height: '100%'
   },
   buttonSpin: {
     position: 'absolute',
@@ -202,25 +216,30 @@ const styles = StyleSheet.create({
     width: scale(45),
     height: scale(45),
     left: moderateScale(10),
-    bottom: verticalScale(10)
+    bottom: verticalScale(20)
   },
   buttonHome: {
     position: 'absolute',
     width: scale(45),
     height: scale(45),
     right: moderateScale(5),
-    bottom: verticalScale(10)
+    bottom: verticalScale(20)
   },
   buttonInfo: {
     position: 'absolute',
     width: scale(45),
     height: scale(45),
     right: moderateScale(70),
-    bottom: verticalScale(10)
+    bottom: verticalScale(20)
   },
   creditValue: {
-    position: 'absolute',
+    alignSelf: 'center',
     justifyContent: 'center',
+    zIndex: 1,
+    bottom: verticalScale(10),
+    fontSize: scale(20),
+    color: 'white',
+    fontFamily: 'Impact'
   },
   buttonBetMinus: {
     position: 'absolute',
@@ -237,14 +256,18 @@ const styles = StyleSheet.create({
   betTitle: {
     position: 'absolute',
     left: moderateScale(87),
-    top: verticalScale(0)
+    top: verticalScale(0),
+    color: 'white',
+    fontSize: scale(20),
+    fontFamily: 'Impact'
   },
   betValue: {
     position: 'absolute',
-    top: verticalScale(10),
+    top: verticalScale(20),
     left: moderateScale(90),
     color: 'white',
-    fontSize: scale(20)
+    fontSize: scale(20),
+    fontFamily: 'Impact'
   },
   betContainer: {
     position: 'absolute',
@@ -257,6 +280,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   coins: state.coins,
+  spinner: state.spinner
 });
 
 export default connect(mapStateToProps)(Slots);

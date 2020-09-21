@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Constants from '../Constants';
 import Reel from './Reel';
 
@@ -17,6 +17,7 @@ export default class ReelSet extends PureComponent {
     this.reelsInMotion = null;
     this.spinResults = [];
     this.winningLines = [];
+    this.scatterIdx = [];
   }
 
 
@@ -51,108 +52,132 @@ export default class ReelSet extends PureComponent {
 
   }
 
-  evaluateResults = () => {
-    this.winningLines = [];
-    for(let lineIdx=0; lineIdx < Constants.LINES.length; lineIdx++) {
-      let cstreak = 0;
-      let lstreak = 0;
-      let gstreak = 0;
-      let mstreak = 0;
-      let ostreak = 0;
-      let pstreak = 0;
-      let dstreak = 0;
-      let bstreak = 0;
-      let sstreak = 0;
-      let scatter = 0;
-      let currentKind = null;
-      for (let coordIdx=0; coordIdx < Constants.LINES[lineIdx].length; coordIdx++) {
+  highlightScatter = () => {
+
+  }
+
+  countScatter = () => {
+    let scatter = 0;
+    for(let lineIdx=0; lineIdx < 3; lineIdx++) {
+      for (let coordIdx=0; coordIdx < 5; coordIdx++) {
         let coords = Constants.LINES[lineIdx][coordIdx];
         let symbolAtCoords = this.spinResults[coords[0]] [coords[1]];
+        
+
+          if (symbolAtCoords === "W") {
+            scatter += 1;
+          }
+      }
+    }
+    console.log('Scatter Count: ' , scatter);
+    return scatter;
+  }
+
+  evaluateResults = () => {
+    let scatterCount = this.countScatter();
+    this.winningLines = [];
+    for(let lineIdx=0; lineIdx < Constants.LINES.length; lineIdx++) {
+    let tstreak = 0;
+    let jstreak = 0;
+    let qstreak = 0;
+    let kstreak = 0;
+    let astreak = 0;
+    let dstreak = 0;
+    let hstreak = 0;
+    let sstreak = 0;
+    let cstreak = 0;
+    let wstreak = 0;
+    let currentKind = null;
+    for (let coordIdx=0; coordIdx < Constants.LINES[lineIdx].length; coordIdx++) {
+      let coords = Constants.LINES[lineIdx][coordIdx];
+      let symbolAtCoords = this.spinResults[coords[0]] [coords[1]];
 
 
         if (coordIdx === 0) {
-          if (symbolAtCoords === "W") {
-            scatter = 1;
-            break;
-          }
           currentKind = symbolAtCoords;
-          cstreak = 1;
-          lstreak = 1;
-          gstreak = 1;
-          mstreak = 1;
-          ostreak = 1;
-          pstreak = 1;
+          tstreak = 1;
+          jstreak = 1;
+          qstreak = 1;
+          kstreak = 1;
+          astreak = 1;
           dstreak = 1;
-          bstreak = 1;
+          hstreak = 1;
           sstreak = 1;
+          cstreak = 1;
+          wstreak = 1;
         } else {
           if (symbolAtCoords !== currentKind) {
             break;
-          } else if (symbolAtCoords === currentKind && currentKind === "7") {
-            sstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "B") {
-            bstreak += 1;
+          } else if (symbolAtCoords === currentKind && currentKind === "T") {
+            tstreak += 1;
+          } else if (symbolAtCoords === currentKind && currentKind === "J") {
+            jstreak += 1;
+          } else if (symbolAtCoords === currentKind && currentKind === "Q") {
+            qstreak += 1;
+          } else if (symbolAtCoords === currentKind && currentKind === "K") {
+            kstreak += 1;
+          } else if (symbolAtCoords === currentKind && currentKind === "A") {
+            astreak += 1;
           } else if (symbolAtCoords === currentKind && currentKind === "D") {
             dstreak += 1;
+          } else if (symbolAtCoords === currentKind && currentKind === "H") {
+            hstreak += 1;
+          } else if (symbolAtCoords === currentKind && currentKind === "S") {
+            sstreak += 1;
           } else if (symbolAtCoords === currentKind && currentKind === "C") {
             cstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "L") {
-            lstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "G") {
-            gstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "M") {
-            mstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "O") {
-            ostreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "P") {
-            pstreak += 1;
+          } else if (symbolAtCoords === currentKind && currentKind === "W") {
+            wstreak += 1;
           }
 
-          if (symbolAtCoords !== currentKind && symbolAtCoords === "W") {
-            scatter += 1;
-          }
         }
       }
-      if (cstreak >= 3) {
-        alert("Cherry")
-        this.winningLines.push(lineIdx);
-      }
-      else if (lstreak >= 3) {
-        alert("Lemon")
-        this.winningLines.push(lineIdx);
-      }
-      else if (gstreak >= 3) {
-        alert("Grape")
-        this.winningLines.push(lineIdx);
-      }
-      else if (mstreak >= 3) {
-        alert("Melon")
-        this.winningLines.push(lineIdx);
-      }
-      else if (ostreak >= 3) {
-        alert("Orange")
-        this.winningLines.push(lineIdx);
-      }
-      else if (pstreak >= 3) {
-        alert("Plum")
-        this.winningLines.push(lineIdx);
-      }
-      else if (bstreak >= 3) {
-        alert("Bell")
-        this.winningLines.push(lineIdx);
-      }
-      else if (dstreak >= 3) {
-        alert("Diamond")
-        this.winningLines.push(lineIdx);
-      }
-      else if (sstreak >= 3) {
-        alert("Seven")
-        this.winningLines.push(lineIdx);
-      }
-      if (scatter >= 3) {
-        alert("Scatter")
-      }
+    
+    if (tstreak >= 3) {
+      alert("Ten")
+      this.winningLines.push(lineIdx);
     }
+    else if (jstreak >= 3) {
+      alert("J")
+      this.winningLines.push(lineIdx);
+    }
+    else if (qstreak >= 3) {
+      alert("Q")
+      this.winningLines.push(lineIdx);
+    }
+    else if (kstreak >= 3) {
+      alert("K")
+      this.winningLines.push(lineIdx);
+    }
+    else if (astreak >= 3) {
+      alert("A")
+      this.winningLines.push(lineIdx);
+    }
+    else if (dstreak >= 3) {
+      alert("Diamond")
+      this.winningLines.push(lineIdx);
+    }
+    else if (hstreak >= 3) {
+      alert("Heart")
+      this.winningLines.push(lineIdx);
+    }
+    else if (sstreak >= 3) {
+      alert("Spades")
+      this.winningLines.push(lineIdx);
+    }
+    else if (cstreak >= 3) {
+      alert("Club")
+      this.winningLines.push(lineIdx);
+    } else if (wstreak >= 3) {
+      alert("ScatterStreak")
+      this.winningLines.push(lineIdx);
+    }
+  }
+
+     if (scatterCount >= 3) {
+        alert("scutter")
+      }
+    
     console.log(this.winningLines);
     this.highlightWinningLines(0);
   }
@@ -182,10 +207,12 @@ export default class ReelSet extends PureComponent {
     })
   }
 
+
+
   renderReels = () => {
     let reelWidth = this.state.width / Constants.REELS;
     let reelList = Array.apply(null, Array(Constants.REELS)).map((el, idx) => {
-      return <Reel width={reelWidth} height={this.state.height} key={idx} index={idx} ref={(ref) => { this.reels[idx] = ref}}/>
+      return <Reel width={reelWidth} height={this.state.height} key={idx} index={idx} ref={(ref) => { this.reels[idx] = ref}} />
     });
 
     return (
@@ -193,7 +220,6 @@ export default class ReelSet extends PureComponent {
         {reelList}
       </>
     )
-
   }
 
   render() {
