@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Rolling Luck",
-    "slug": "rolling-luck",
+    "name": "lucky roll",
+    "slug": "lucky-roll",
     "platforms": [
       "ios",
       "android",
@@ -26,7 +26,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.abumdev.rollingluck"
     },
     "description": ""
   }

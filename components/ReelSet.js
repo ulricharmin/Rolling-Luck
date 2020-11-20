@@ -175,7 +175,7 @@ export default class ReelSet extends PureComponent {
   }
 
      if (scatterCount >= 3) {
-        alert("scutter")
+        alert("Scatter")
       }
     
     console.log(this.winningLines);
