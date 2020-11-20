@@ -25,12 +25,19 @@ credits: this.props.coins.coins
     AdMobRewarded.addEventListener("rewardedVideoDidFailToLoad", () =>
     console.log("FailedToLoad")
     );
+    AdMobRewarded.addEventListener("rewardedVideoDidStart", () =>
+    console.log("VideoStarted")
+    );
+    AdMobRewarded.addEventListener("rewardedVideoDidComplete", () =>
+    console.log("VideoComplete")
+    );
     AdMobRewarded.addEventListener("rewardedVideoDidOpen", () =>
     console.log("Opened")
     );
     AdMobRewarded.addEventListener("rewardedVideoDidClose", () => {
       AdMobRewarded.requestAdAsync();
       console.log("Closed")
+      alert("You might want to wait a second or two before opening a new Ad.")
     });
     AdMobRewarded.addEventListener("rewardedVideoWillLeaveApplication", () =>
     console.log("LeaveApp")

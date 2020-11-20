@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import { StyleSheet, View, Image, StatusBar, ActivityIndicator, Text } from 'react-native';
+import { StyleSheet, View, Image, StatusBar, ActivityIndicator, Text, Modal, Button } from 'react-native';
 import Constants from './Constants';
 import ReelSet from './components/ReelSet';
 import Images from './assets/Images';
@@ -43,14 +43,14 @@ class Slots extends PureComponent {
   }
 
   spin = () => {
-    if (this.state.credits - this.state.bet < 0) {
-      alert("Insufficient Coins!")
+    if (this.state.credits - this.state.bet <= 0) {
       return;
     }
     this.setState({
       credits: this.state.credits - this.state.bet,
       spinButtonActive: false,
-      betButtonActive: false
+      betButtonActive: false,
+      popupVisible: false
     }, () => {
       this.reelSet.spin();
       this.props.dispatch(updateCoins(this.state.credits));
@@ -92,6 +92,7 @@ class Slots extends PureComponent {
   render() {
     const {spinner, popupVisible} = this.state;
     return (
+      
       <View style={styles.container}>
       <StatusBar hidden={true} />
          
@@ -102,6 +103,7 @@ class Slots extends PureComponent {
             <TouchableButton status="active" style={styles.buttonInfo} image="buttonInfo" />
           </View>
           <Image style={styles.mainBackground} source={Images.mainBackground} resizeMode="stretch" />
+          <Image style={styles.background} source={require('./assets/img/Ablage/background.jpg')} />
           <View style={styles.main}>
             <View style={styles.mainBox}>
               <ReelSet ref={(ref) => {this.reelSet = ref;}} onReady={this.onReelsetReady} />
@@ -154,6 +156,13 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'contain'
   },
+  background: {
+    height: verticalScale(200),
+    width: Constants.MAX_WIDTH,
+    position: 'absolute',
+    top: verticalScale(260),
+    zIndex: -1
+  },
   backgroundImage: {
     width: Constants.MAX_WIDTH,
     height: Constants.MAX_HEIGHT,
@@ -175,15 +184,16 @@ const styles = StyleSheet.create({
   mainBox: {
     position: 'absolute',
     width: scale(300),
-    height: scale(175),
+    height: scale(195),
     alignSelf: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    top: -10
   },
   main: {
     width: scale(305),
     height: scale(237),
     padding: scale(10),
-    top: verticalScale(25),
+    top: verticalScale(15),
     alignSelf: 'center',
   },
   mainBackground: {
@@ -233,10 +243,8 @@ const styles = StyleSheet.create({
     bottom: verticalScale(20)
   },
   creditValue: {
+    bottom: verticalScale(100),
     alignSelf: 'center',
-    justifyContent: 'center',
-    zIndex: 1,
-    bottom: verticalScale(10),
     fontSize: scale(20),
     color: 'white',
     fontFamily: 'Impact'

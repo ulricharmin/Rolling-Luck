@@ -43,7 +43,7 @@ export default class Reel extends PureComponent {
         toValue: this.currentScrollPos,
         duration: 950 + (this.props.index * 250),
         useNativeDriver: true,
-        easing: Easing.inOut(Easing.exp)
+        easing: Easing.inOut(Easing.sin)
       }
     ).start(() => {
       this.position = ((Constants.REELS_REPEAT - 2) * this.symbols.length) + (this.position % this.symbols.length);

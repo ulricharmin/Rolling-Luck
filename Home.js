@@ -31,7 +31,7 @@ class Home extends PureComponent {
       <View style={styles.container}>
       <StatusBar hidden={true} />
         <Image style={styles.backgroundImage} source={Images.homeBackground} resizeMode="cover" />
-          <View style={styles.box}>
+          <View style={styles.box} resizeMode="contain">
             <TouchableButton style={styles.buttonSlots} image="buttonSlots" onPress={() => this.props.navigation.navigate('Slots')} />
             <TouchableButton style={styles.buttonShop} image="buttonShop" onPress={() => this.props.navigation.navigate('Shop')} />
             <TouchableButton style={styles.buttonCS} image="buttonCS"/>
