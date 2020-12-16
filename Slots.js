@@ -27,6 +27,7 @@ class Slots extends PureComponent {
       credits: this.props.coins.coins,
       spinner: false,
       popupVisible: false,
+      infoVisible: false,
       betMinusButtonActive: true,
       betPlusButtonActive: true,
       fontLoaded: false
@@ -50,7 +51,7 @@ class Slots extends PureComponent {
       credits: this.state.credits - this.state.bet,
       spinButtonActive: false,
       betButtonActive: false,
-      popupVisible: false
+      popupVisible: false,
     }, () => {
       this.reelSet.spin();
       this.props.dispatch(updateCoins(this.state.credits));
@@ -95,15 +96,14 @@ class Slots extends PureComponent {
       
       <View style={styles.container}>
       <StatusBar hidden={true} />
-         
           <View style={styles.topBar}>
             <Image style={styles.backgroundTopBar} source={Images.backgroundTop}/>
             <TouchableSwitch status="active" style={styles.buttonSound} image="buttonSound" />
             <TouchableButton status="active" onPress={() => this.props.navigation.navigate('Home')} style={styles.buttonHome} image="buttonHome"  />
-            <TouchableButton status="active" style={styles.buttonInfo} image="buttonInfo" />
+            <TouchableButton status="active" style={styles.buttonInfo} image="buttonInfo" onPress={this.setState({ infoVisible: true })} />
           </View>
           <Image style={styles.mainBackground} source={Images.mainBackground} resizeMode="stretch" />
-          <Image style={styles.background} source={require('./assets/img/Ablage/background.jpg')} />
+          <Image style={styles.background} source={Images.slotsBackground} resizeMode="stretch" />
           <View style={styles.main}>
             <View style={styles.mainBox}>
               <ReelSet ref={(ref) => {this.reelSet = ref;}} onReady={this.onReelsetReady} />
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     height: verticalScale(200),
     width: Constants.MAX_WIDTH,
     position: 'absolute',
-    top: verticalScale(260),
+    top: verticalScale(250),
     zIndex: -1
   },
   backgroundImage: {
@@ -283,6 +283,9 @@ const styles = StyleSheet.create({
     height: verticalScale(50),
     width: moderateScale(200),
     left: moderateScale(20)
+  },
+  infoModal: {
+
   }
 });
 

@@ -22,7 +22,6 @@ export default class Reel extends PureComponent {
     }
   }
 
-
   highlightAtIndex = (index, highlight) => {
     this.symbolRefs[this.position + index].setActive(highlight);
   }
