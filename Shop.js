@@ -101,9 +101,8 @@ class Shop extends PureComponent {
                       closeDialog = { this.handleClose } >
         </DialogInput>
         <TouchableButton style={styles.buttonBack} image="buttonBack" onPress={() => this.props.navigation.navigate('Home')} />
-        <Text style={styles.creditValue}> {this.state.credits} </Text>
         <Image style={styles.backgroundImage} source={Images.homeBackground} resizeMode="cover" />
-          <View style={{flexDirection: 'row', flexWrap: 'wrap', height: 605, resizeMode:"contain", top: verticalScale(50) }}>
+          <View style={{flexDirection: 'row', flexWrap: 'wrap', height: verticalScale(605), resizeMode:"contain", top: verticalScale(70) }}>
             <TouchableButton style={styles.buttonGooglePlay} image="buttonGooglePlay5" inactive={!this.state.active5} onPress={() => this.dialogBox("Google Play", "5€", 5000)} />
             <TouchableButton style={styles.buttonGooglePlay} image="buttonGooglePlay10" inactive={!this.state.active10} onPress={() => this.dialogBox("Google Play", "10€", 10000)} />
             <TouchableButton style={styles.buttonGooglePlay} image="buttonGooglePlay15" inactive={!this.state.active15} onPress={() => this.dialogBox("Google Play", "15€", 15000)} />

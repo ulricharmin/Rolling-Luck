@@ -37,7 +37,6 @@ credits: this.props.coins.coins
     AdMobRewarded.addEventListener("rewardedVideoDidClose", () => {
       AdMobRewarded.requestAdAsync();
       console.log("Closed")
-      alert("You might want to wait a second or two before opening a new Ad.")
     });
     AdMobRewarded.addEventListener("rewardedVideoWillLeaveApplication", () =>
     console.log("LeaveApp")

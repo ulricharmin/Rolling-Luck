@@ -20,8 +20,6 @@ export default class ReelSet extends PureComponent {
     this.scatterIdx = [];
   }
 
-
-
   randomBetween = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
@@ -53,7 +51,7 @@ export default class ReelSet extends PureComponent {
   }
 
   highlightScatter = () => {
-
+     
   }
 
   countScatter = () => {
@@ -134,48 +132,37 @@ export default class ReelSet extends PureComponent {
       }
     
     if (tstreak >= 3) {
-      alert("Ten")
       this.winningLines.push(lineIdx);
     }
     else if (jstreak >= 3) {
-      alert("J")
       this.winningLines.push(lineIdx);
     }
     else if (qstreak >= 3) {
-      alert("Q")
       this.winningLines.push(lineIdx);
     }
     else if (kstreak >= 3) {
-      alert("K")
       this.winningLines.push(lineIdx);
     }
     else if (astreak >= 3) {
-      alert("A")
       this.winningLines.push(lineIdx);
     }
     else if (dstreak >= 3) {
-      alert("Diamond")
       this.winningLines.push(lineIdx);
     }
     else if (hstreak >= 3) {
-      alert("Heart")
       this.winningLines.push(lineIdx);
     }
     else if (sstreak >= 3) {
-      alert("Spades")
       this.winningLines.push(lineIdx);
     }
     else if (cstreak >= 3) {
-      alert("Club")
       this.winningLines.push(lineIdx);
     } else if (wstreak >= 3) {
-      alert("ScatterStreak")
       this.winningLines.push(lineIdx);
     }
   }
 
      if (scatterCount >= 3) {
-        alert("Scatter")
       }
     
     console.log(this.winningLines);
