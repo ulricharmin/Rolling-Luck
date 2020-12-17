@@ -22,15 +22,6 @@ export default class App extends PureComponent {
     }
   }
 
-  async componentDidMount() {
-
-    await Font.loadAsync({
-      'Impact': require('./assets/fonts/impact.ttf')
-    });
-    
-    this.setState({ fontLoaded: true });
-  }
-
   render() {
 
     return(
