@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.1.0",
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "0.1.6",
     "@use-expo/font": "^2.0.0",
     "aws-sdk": "^2.663.0",

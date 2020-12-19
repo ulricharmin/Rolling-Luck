@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "lucky roll",
-    "slug": "lucky-roll",
+    "name": "Rolling Luck",
+    "slug": "rolling-luck",
     "platforms": [
       "ios",
       "android",
