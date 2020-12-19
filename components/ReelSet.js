@@ -74,18 +74,13 @@ export default class ReelSet extends PureComponent {
   evaluateResults = () => {
     let scatterCount = this.countScatter();
     this.winningLines = [];
+    var streaksArray = [["T",0], ["J",0], ["Q",0], ["K",0], ["A",0], ["D",0], ["H",0], ["S",0], ["C",0], ["W",0]];
+    var streakFactor = [1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6];
+    
     for(let lineIdx=0; lineIdx < Constants.LINES.length; lineIdx++) {
-    let tstreak = 0;
-    let jstreak = 0;
-    let qstreak = 0;
-    let kstreak = 0;
-    let astreak = 0;
-    let dstreak = 0;
-    let hstreak = 0;
-    let sstreak = 0;
-    let cstreak = 0;
-    let wstreak = 0;
-    let currentKind = null;
+      let currentKind = null;
+      var streakHashMap = new Map(streaksArray);
+      
     for (let coordIdx=0; coordIdx < Constants.LINES[lineIdx].length; coordIdx++) {
       let coords = Constants.LINES[lineIdx][coordIdx];
       let symbolAtCoords = this.spinResults[coords[0]] [coords[1]];
@@ -93,76 +88,29 @@ export default class ReelSet extends PureComponent {
 
         if (coordIdx === 0) {
           currentKind = symbolAtCoords;
-          tstreak = 1;
-          jstreak = 1;
-          qstreak = 1;
-          kstreak = 1;
-          astreak = 1;
-          dstreak = 1;
-          hstreak = 1;
-          sstreak = 1;
-          cstreak = 1;
-          wstreak = 1;
         } else {
           if (symbolAtCoords !== currentKind) {
             break;
-          } else if (symbolAtCoords === currentKind && currentKind === "T") {
-            tstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "J") {
-            jstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "Q") {
-            qstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "K") {
-            kstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "A") {
-            astreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "D") {
-            dstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "H") {
-            hstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "S") {
-            sstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "C") {
-            cstreak += 1;
-          } else if (symbolAtCoords === currentKind && currentKind === "W") {
-            wstreak += 1;
+          } if (symbolAtCoords === currentKind) {
+            console.log(currentKind);
+            console.log("Vorher: " + streakHashMap.get(currentKind));
+            streakHashMap.set(currentKind, streakHashMap.get(currentKind)+1)
+            console.log("Nacher: " + streakHashMap.get(currentKind));
           }
-
         }
       }
-    
-    if (tstreak >= 3) {
-      this.winningLines.push(lineIdx);
-    }
-    else if (jstreak >= 3) {
-      this.winningLines.push(lineIdx);
-    }
-    else if (qstreak >= 3) {
-      this.winningLines.push(lineIdx);
-    }
-    else if (kstreak >= 3) {
-      this.winningLines.push(lineIdx);
-    }
-    else if (astreak >= 3) {
-      this.winningLines.push(lineIdx);
-    }
-    else if (dstreak >= 3) {
-      this.winningLines.push(lineIdx);
-    }
-    else if (hstreak >= 3) {
-      this.winningLines.push(lineIdx);
-    }
-    else if (sstreak >= 3) {
-      this.winningLines.push(lineIdx);
-    }
-    else if (cstreak >= 3) {
-      this.winningLines.push(lineIdx);
-    } else if (wstreak >= 3) {
-      this.winningLines.push(lineIdx);
-    }
-  }
 
+
+      for(let i=0; i<streaksArray.length; i++) {
+        if(streakHashMap.get(streaksArray[i][0]) >= 3) {
+          this.winningLines.push(lineIdx);
+          /* this.setState({ coins: this.state.bet * streakFactor[i] }) */
+          break;
+        }
+      }
+    }
      if (scatterCount >= 3) {
+       console.log("Scatter")
       }
     
     console.log(this.winningLines);

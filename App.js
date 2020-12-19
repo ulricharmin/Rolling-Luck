@@ -16,10 +16,6 @@ import * as Font from 'expo-font';
 export default class App extends PureComponent {
   constructor(props){
     super(props);
-
-    this.state = {
-      fontLoaded: false
-    }
   }
 
   render() {
