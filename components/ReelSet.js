@@ -74,17 +74,16 @@ export default class ReelSet extends PureComponent {
   evaluateResults = () => {
     let scatterCount = this.countScatter();
     this.winningLines = [];
-    var streaksArray = [["T",0], ["J",0], ["Q",0], ["K",0], ["A",0], ["D",0], ["H",0], ["S",0], ["C",0], ["W",0]];
+    var streaksArray = [["T",1], ["J",1], ["Q",1], ["K",1], ["A",1], ["D",1], ["H",1], ["S",1], ["C",1], ["W",1]];
     var streakFactor = [1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6];
     
     for(let lineIdx=0; lineIdx < Constants.LINES.length; lineIdx++) {
       let currentKind = null;
       var streakHashMap = new Map(streaksArray);
-      
-    for (let coordIdx=0; coordIdx < Constants.LINES[lineIdx].length; coordIdx++) {
-      let coords = Constants.LINES[lineIdx][coordIdx];
-      let symbolAtCoords = this.spinResults[coords[0]] [coords[1]];
 
+      for (let coordIdx=0; coordIdx < Constants.LINES[lineIdx].length; coordIdx++) {
+        let coords = Constants.LINES[lineIdx][coordIdx];
+        let symbolAtCoords = this.spinResults[coords[0]] [coords[1]];
 
         if (coordIdx === 0) {
           currentKind = symbolAtCoords;
@@ -92,14 +91,10 @@ export default class ReelSet extends PureComponent {
           if (symbolAtCoords !== currentKind) {
             break;
           } if (symbolAtCoords === currentKind) {
-            console.log(currentKind);
-            console.log("Vorher: " + streakHashMap.get(currentKind));
-            streakHashMap.set(currentKind, streakHashMap.get(currentKind)+1)
-            console.log("Nacher: " + streakHashMap.get(currentKind));
+            streakHashMap.set(currentKind, streakHashMap.get(currentKind)+1);
           }
         }
       }
-
 
       for(let i=0; i<streaksArray.length; i++) {
         if(streakHashMap.get(streaksArray[i][0]) >= 3) {
@@ -108,13 +103,15 @@ export default class ReelSet extends PureComponent {
           break;
         }
       }
-    }
-     if (scatterCount >= 3) {
-       console.log("Scatter")
-      }
+  }
+
+  if (scatterCount >= 3) {
+    console.log("Scatter");
+    alert("Scatter");
+  }
     
-    console.log(this.winningLines);
-    this.highlightWinningLines(0);
+  console.log(this.winningLines);
+  this.highlightWinningLines(0);
   }
 
   spin = () => {

@@ -30,7 +30,7 @@ class Slots extends PureComponent {
       infoVisible: false,
       betMinusButtonActive: true,
       betPlusButtonActive: true,
-      fontLoaded: false
+      fontLoading: true
     }
   }
 
@@ -40,7 +40,7 @@ class Slots extends PureComponent {
       'Impact': require('./assets/fonts/impact.ttf')
     });
     
-    this.setState({ fontLoaded: true });
+    this.setState({ fontLoading: false });
   }
 
   spin = () => {
@@ -84,23 +84,32 @@ class Slots extends PureComponent {
     if (nextIndex !== Constants.BETS.length - 1) {
       this.setState({betPlusButtonActive: true})
     }
-
+    
     this.setState({
       bet: Constants.BETS[nextIndex]
     });
   }
 
+  infoPopUp = () => {
+    this.setState({ infoVisible: true });
+  }
+  
   render() {
-    const {spinner, popupVisible} = this.state;
-    return (
-      
+    if (this.state.fontLoading) {
+      return (
+        <View>
+          <Text>Loading Fonts</Text>
+        </View>
+      );
+    }
+      return (
       <View style={styles.container}>
       <StatusBar hidden={true} />
           <View style={styles.topBar}>
             <Image style={styles.backgroundTopBar} source={Images.backgroundTop}/>
             <TouchableSwitch status="active" style={styles.buttonSound} image="buttonSound" />
             <TouchableButton status="active" onPress={() => this.props.navigation.navigate('Home')} style={styles.buttonHome} image="buttonHome"  />
-            <TouchableButton status="active" style={styles.buttonInfo} image="buttonInfo" onPress={this.setState({ infoVisible: true })} />
+            <TouchableButton status="active" style={styles.buttonInfo} image="buttonInfo" onPress={this.infoPopUp} />
           </View>
           <Image style={styles.mainBackground} source={Images.mainBackground} resizeMode="stretch" />
           <Image style={styles.background} source={Images.slotsBackground} resizeMode="stretch" />
@@ -110,42 +119,26 @@ class Slots extends PureComponent {
             </View>
           </View>
           <View style={styles.bottomBar}>
-              <Image style={styles.backgroundBottomBar} source={Images.backgroundBottom} resizeMode="stretch" />
-              <TouchableButton onPress={this.spin} style={styles.buttonSpin} inactive={!this.state.spinButtonActive} image="buttonSpin" />
-              
-              {this.state.fontLoaded?
-                <Text style={styles.creditValue}>{this.state.credits}</Text>
-                : (
-                <ActivityIndicator size="large" />
-                )}
-            
+            <Image style={styles.backgroundBottomBar} source={Images.backgroundBottom} resizeMode="stretch" />
+            <TouchableButton onPress={this.spin} style={styles.buttonSpin} inactive={!this.state.spinButtonActive} image="buttonSpin" />
+            <Text style={styles.creditValue}>{this.state.credits}</Text>
             <View style={styles.betContainer}>
               <TouchableButton
                 onPress={() => { this.changeBet(-1); } }
                 style={styles.buttonBetMinus}
                 inactive={!this.state.betMinusButtonActive}
                 image="buttonBetMinus" />
-
               <View styles={styles.betDisplayContainer}>
-              {this.state.fontLoaded?
-                                <Text style={styles.betTitle}>BET</Text>
-                : (
-                <ActivityIndicator size="large" />
-                )}
-
-              <Text style={styles.betValue}>{this.state.bet}</Text>
+                <Text style={styles.betTitle}>BET</Text>
+                <Text style={styles.betValue}>{this.state.bet}</Text>
               </View>
-
               <TouchableButton
                 onPress={() => { this.changeBet(1); } }
                 style={styles.buttonBetPlus}
                 inactive={!this.state.betPlusButtonActive}
                 image="buttonBetPlus" />
             </View>
-
           </View>
-          <Loader modalVisible={spinner} animationType="fade" />
-          <PopUp modalVisible={popupVisible} />
       </View>
     );
   }
