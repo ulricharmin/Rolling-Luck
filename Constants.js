@@ -68,7 +68,7 @@ export default Constants = {
       [0,0], [1,0], [2,1], [3,2], [4,2] // Z shape from top left [16]
     ],
     [
-      [0,2], [1,2], [2,1], [3,0], [4,0] // Z shape from bottom left 17
+      [0,2], [1,2], [2,1], [3,0], [4,0] // Z shape from bottom left [17]
     ]
   ]
 }
