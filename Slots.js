@@ -98,7 +98,7 @@ class Slots extends PureComponent {
     if (this.state.fontLoading) {
       return (
         <View>
-          <Text>Loading Fonts</Text>
+          <Text>Loading Font</Text>
         </View>
       );
     }
@@ -115,7 +115,9 @@ class Slots extends PureComponent {
           <Image style={styles.background} source={Images.slotsBackground} resizeMode="stretch" />
           <View style={styles.main}>
             <View style={styles.mainBox}>
+              
               <ReelSet ref={(ref) => {this.reelSet = ref;}} onReady={this.onReelsetReady} />
+
             </View>
           </View>
           <View style={styles.bottomBar}>
@@ -150,20 +152,12 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   },
   background: {
-    height: verticalScale(200),
-    width: Constants.MAX_WIDTH,
     position: 'absolute',
-    top: verticalScale(250),
+    width: scale(350),
+    height: scale(245),
+    resizeMode: 'stretch',
+    top: verticalScale(238),
     zIndex: -1
-  },
-  backgroundImage: {
-    width: Constants.MAX_WIDTH,
-    height: Constants.MAX_HEIGHT,
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0
   },
   topBar: {
     height: verticalScale(255),
@@ -180,14 +174,14 @@ const styles = StyleSheet.create({
     height: scale(195),
     alignSelf: 'center',
     justifyContent: 'center',
-    top: -10
+    top: verticalScale(-5),
   },
   main: {
     width: scale(305),
     height: scale(237),
     padding: scale(10),
     top: verticalScale(15),
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   mainBackground: {
     position: 'absolute',

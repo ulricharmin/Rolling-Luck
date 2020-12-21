@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
      bottom: verticalScale(0),
      width: moderateScale(317),
      height: moderateScale(297),
+     resizeMode: 'contain'
    },
    buttonShop: {
      position: 'absolute',
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
      top: verticalScale(0),
      width: moderateScale(160),
      height: verticalScale(156),
+     resizeMode: 'contain'
    },
   buttonCS: {
     position: 'absolute',
@@ -94,6 +96,7 @@ const styles = StyleSheet.create({
     width: moderateScale(155),
     height: verticalScale(284),
     padding: scale(10),
+    resizeMode: 'contain'
   }
 });
 

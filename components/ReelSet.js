@@ -6,7 +6,7 @@ import Reel from './Reel';
 import { connect } from 'react-redux';
 import { updateCoins } from '../redux/reducers/coins';
 
-export default class ReelSet extends PureComponent {
+class ReelSet extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -169,3 +169,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
 });
+
+const mapStateToProps = state => ({
+  coins: state.coins,
+});
+
+export default connect(mapStateToProps)(ReelSet);
