@@ -47,7 +47,6 @@ class Shop extends PureComponent {
     global.costs = credits;
     global.giftcard = card;
     global.value = amount;
-    console.log(credits)
     if (this.state.credits >= credits) {
       this.setState({ visible: true })
     } else {
@@ -102,22 +101,22 @@ class Shop extends PureComponent {
         </DialogInput>
         <TouchableButton style={styles.buttonBack} image="buttonBack" onPress={() => this.props.navigation.navigate('Home')} />
         <Image style={styles.backgroundImage} source={Images.homeBackground} resizeMode="cover" />
-          <View style={{flexDirection: 'row', flexWrap: 'wrap', height: verticalScale(605), resizeMode:"contain", top: verticalScale(70) }}>
-            <TouchableButton style={styles.buttonGooglePlay} image="buttonGooglePlay5" inactive={!this.state.active5} onPress={() => this.dialogBox("Google Play", "5€", 5000)} />
-            <TouchableButton style={styles.buttonGooglePlay} image="buttonGooglePlay10" inactive={!this.state.active10} onPress={() => this.dialogBox("Google Play", "10€", 10000)} />
-            <TouchableButton style={styles.buttonGooglePlay} image="buttonGooglePlay15" inactive={!this.state.active15} onPress={() => this.dialogBox("Google Play", "15€", 15000)} />
+          <View style={{flexDirection: 'row', flexWrap: 'wrap', height: scale(605), resizeMode:'contain', top: verticalScale(70) }}>
+            <TouchableButton style={styles.button} image="buttonGooglePlay5" inactive={!this.state.active5} onPress={() => this.dialogBox("Google Play", "5€", 5000)} />
+            <TouchableButton style={styles.button} image="buttonGooglePlay10" inactive={!this.state.active10} onPress={() => this.dialogBox("Google Play", "10€", 10000)} />
+            <TouchableButton style={styles.button} image="buttonGooglePlay15" inactive={!this.state.active15} onPress={() => this.dialogBox("Google Play", "15€", 15000)} />
 
-            <TouchableButton style={styles.buttonPlayStation} image="buttonPlayStation5" inactive={!this.state.active5} onPress={() => this.dialogBox("PlayStation", "5€", 5000)} />
-            <TouchableButton style={styles.buttonPlayStation} image="buttonPlayStation10" inactive={!this.state.active10} onPress={() => this.dialogBox("PlayStation", "10€", 10000)} />
-            <TouchableButton style={styles.buttonPlayStation} image="buttonPlayStation15" inactive={!this.state.active15} onPress={() => this.dialogBox("PlayStation", "15€", 15000)} />
+            <TouchableButton style={styles.button} image="buttonPlayStation5" inactive={!this.state.active5} onPress={() => this.dialogBox("PlayStation", "5€", 5000)} />
+            <TouchableButton style={styles.button} image="buttonPlayStation10" inactive={!this.state.active10} onPress={() => this.dialogBox("PlayStation", "10€", 10000)} />
+            <TouchableButton style={styles.button} image="buttonPlayStation15" inactive={!this.state.active15} onPress={() => this.dialogBox("PlayStation", "15€", 15000)} />
 
-            <TouchableButton style={styles.buttonAmazon} image="buttonAmazon5" inactive={!this.state.active5} onPress={() => this.dialogBox("Amazon", "5€", 5000)} />
-            <TouchableButton style={styles.buttonAmazon} image="buttonAmazon10" inactive={!this.state.active10} onPress={() => this.dialogBox("Amazon", "10€", 10000)} />
-            <TouchableButton style={styles.buttonAmazon} image="buttonAmazon15" inactive={!this.state.active15} onPress={() => this.dialogBox("Amazon", "15€", 15000)} />
+            <TouchableButton style={styles.button} image="buttonAmazon5" inactive={!this.state.active5} onPress={() => this.dialogBox("Amazon", "5€", 5000)} />
+            <TouchableButton style={styles.button} image="buttonAmazon10" inactive={!this.state.active10} onPress={() => this.dialogBox("Amazon", "10€", 10000)} />
+            <TouchableButton style={styles.button} image="buttonAmazon15" inactive={!this.state.active15} onPress={() => this.dialogBox("Amazon", "15€", 15000)} />
 
-            <TouchableButton style={styles.buttonXbox} image="buttonXbox5" inactive={!this.state.active5} onPress={() => this.dialogBox("Xbox", "5€", 5000)} />
-            <TouchableButton style={styles.buttonXbox} image="buttonXbox10" inactive={!this.state.active10} onPress={() => this.dialogBox("Xbox", "10€", 10000)} />
-            <TouchableButton style={styles.buttonXbox} image="buttonXbox15" inactive={!this.state.active15} onPress={() => this.dialogBox("Xbox", "15€", 15000)} />
+            <TouchableButton style={styles.button} image="buttonXbox5" inactive={!this.state.active5} onPress={() => this.dialogBox("Xbox", "5€", 5000)} />
+            <TouchableButton style={styles.button} image="buttonXbox10" inactive={!this.state.active10} onPress={() => this.dialogBox("Xbox", "10€", 10000)} />
+            <TouchableButton style={styles.button} image="buttonXbox15" inactive={!this.state.active15} onPress={() => this.dialogBox("Xbox", "15€", 15000)} />
           </View>
       </View>
     );
@@ -153,30 +152,12 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0
   },
-  buttonGooglePlay: {
+  button: {
     left: moderateScale(12),
-    width: scale(110),
-    height: scale(150),
+    width: moderateScale(120),
+    height: verticalScale(140),
     top: verticalScale(50),
   },
-  buttonPlayStation: {
-    left: moderateScale(12),
-    width: scale(110),
-    height: scale(150),
-    top: verticalScale(50),
-  },
-  buttonAmazon: {
-    left: moderateScale(12),
-    width: scale(110),
-    height: scale(150),
-    top: verticalScale(50),
-  },
-  buttonXbox: {
-    left: moderateScale(12),
-    width: scale(110),
-    height: scale(150),
-    top: verticalScale(50),
-  }
 });
 
 const mapStateToProps = state => ({

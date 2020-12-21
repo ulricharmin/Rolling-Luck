@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
     top: verticalScale(158),
     width: moderateScale(161),
     height: verticalScale(120),
+    resizeMode: 'contain'
   },
 });
 
@@ -95,6 +96,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(AdMobRewardedComponent);
-
-// MyUnitID ca-app-pub-6019783880494970/7765357807
-// TestUnitID ca-app-pub-3940256099942544/5224354917
