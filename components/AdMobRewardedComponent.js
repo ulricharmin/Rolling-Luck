@@ -7,12 +7,25 @@ import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 import { connect } from 'react-redux';
 import { updateCoins } from '../redux/reducers/coins';
+import { store } from '../redux/store/store';
 
 class AdMobRewardedComponent extends Component {
-state = {
-loadedAd: false,
-credits: this.props.coins.coins
-};
+  constructor(props) {
+    super(props);
+    this.unsubscribe = store.subscribe(this.handleChange);
+    this.state = {
+      loadedAd: false,
+      credits: this.props.coins.coins
+    };
+  }
+    
+  selectCoins = (state) => {
+    return state.coins.coins;
+  }
+
+  handleChange = () => {
+    this.setState({ credits: this.selectCoins(store.getState()) })
+  }
 
  createAndLoadRewardedAd = async () => {
     await setTestDeviceIDAsync("EMULATOR");
@@ -41,15 +54,17 @@ credits: this.props.coins.coins
     AdMobRewarded.addEventListener("rewardedVideoWillLeaveApplication", () =>
     console.log("LeaveApp")
     );
-    AdMobRewarded.addEventListener("rewardedVideoDidRewardUser", () =>
-    console.log("Rewarded"),
-    this.setState({
-      credits: this.state.credits + 30 
-      },() => {
-        this.props.dispatch(updateCoins(this.state.credits))
-      }),
+    AdMobRewarded.addEventListener("rewardedVideoDidRewardUser", () => {
+      this.setState({
+        credits: this.state.credits + 30 
+      }, () => {
+        this.props.dispatch(updateCoins(this.state.credits));
+        console.log("Rewarded");
+      });
+    }
+
     );
-    await AdMobRewarded.requestAdAsync();
+      await AdMobRewarded.requestAdAsync();
 }
 
 
@@ -61,6 +76,7 @@ async componentDidMount() {
 componentWillUnmount() {
   this.setState({ loadedAd: false })
   AdMobRewarded.removeAllListeners();
+  this.unsubscribe();
 }
 
 _handlePress = async () => {

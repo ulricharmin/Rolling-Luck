@@ -34,7 +34,7 @@ export default class TouchableSwitch extends PureComponent {
 
   render() {
     return (
-    <TouchableWithoutFeedback onPressOut={this.handlePressOut}>
+    <TouchableWithoutFeedback onPressOut={this.handlePressOut} touchSoundDisabled={true}>
       <View style={this.props.style}>
         <Image source={this.images[this.state.status]} style={{ width: this.props.style.width, height: this.props.style.height, position: 'absolute'}} resizeMode={this.props.resizeMode || "stretch"} />
       </View>

@@ -91,6 +91,7 @@ class Shop extends PureComponent {
   render() {
     return (
       <View style={styles.container}>
+
         <StatusBar hidden={true}/>
         <DialogInput isDialogVisible = {this.state.visible}
                       title = {"Submit Email"}
@@ -99,9 +100,10 @@ class Shop extends PureComponent {
                       submitInput = { (inputText) => {this.handleSendEmail(inputText)} }
                       closeDialog = { this.handleClose } >
         </DialogInput>
+
         <TouchableButton style={styles.buttonBack} image="buttonBack" onPress={() => this.props.navigation.navigate('Home')} />
         <Image style={styles.backgroundImage} source={Images.homeBackground} resizeMode="cover" />
-          <View style={{flexDirection: 'row', flexWrap: 'wrap', height: scale(605), resizeMode:'contain', top: verticalScale(70) }}>
+          <View style={styles.container}>
             <TouchableButton style={styles.button} image="buttonGooglePlay5" inactive={!this.state.active5} onPress={() => this.dialogBox("Google Play", "5€", 5000)} />
             <TouchableButton style={styles.button} image="buttonGooglePlay10" inactive={!this.state.active10} onPress={() => this.dialogBox("Google Play", "10€", 10000)} />
             <TouchableButton style={styles.button} image="buttonGooglePlay15" inactive={!this.state.active15} onPress={() => this.dialogBox("Google Play", "15€", 15000)} />
@@ -125,7 +127,10 @@ class Shop extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center'
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignContent: 'center',
+    flex: 1
   },
   creditValue: {
     alignSelf: 'center',
@@ -154,8 +159,8 @@ const styles = StyleSheet.create({
   },
   button: {
     left: moderateScale(12),
-    width: moderateScale(120),
-    height: verticalScale(140),
+    width: scale(110),
+    height: scale(130),
     top: verticalScale(50),
   },
 });

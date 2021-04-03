@@ -56,7 +56,7 @@ export default class TouchableButton extends PureComponent {
     const status = this.props.inactive ? "inactive" : this.state.status;
     const content = this.renderContent();
     return (
-          <TouchableWithoutFeedback onPressIn={this.handlePressIn} onPressOut={this.handlePressOut}>
+          <TouchableWithoutFeedback onPressIn={this.handlePressIn} onPressOut={this.handlePressOut} touchSoundDisabled={true}>
               <View style={[this.props.style, { justifyContent: 'center', alignItems: 'center'}]}>
                   <Image source={this.images[status]} style={{ width: this.props.style.width, height: this.props.style.height, position: 'absolute'}} resizeMode={this.props.resizeMode || "stretch"} />
               </View>

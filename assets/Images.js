@@ -35,6 +35,8 @@ const images = {
   buttonBetPlusInactive: require('./img/buttonBetPlusInactive.png'),
   mainBackground: require('./img/mainBackground.png'),
   slotsBackground: require('./img/background.png'),
+  infoImage: require('./img/info_screen.png'),
+  closeInfo: require('./img/closeInfo.png'),
 
 
   // Home Page
