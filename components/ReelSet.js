@@ -4,20 +4,31 @@ import Constants from '../Constants';
 import Reel from './Reel';
 
 import { connect } from 'react-redux';
+import { store } from '../redux/store/store';
 import { updateCoins } from '../redux/reducers/coins';
+import { updateBet } from '../redux/reducers/bet';
+
 
 class ReelSet extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      bet: this.props.bet.bet,
+      credits: this.props.coins.coins,
       width: null,
       height: null
     }
+    this.unsubscribe = store.subscribe(this.handleChange);
     this.reels = [];
     this.reelsInMotion = null;
     this.spinResults = [];
     this.winningLines = [];
     this.scatterIdx = [];
+    this.currentValue = null;
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   randomBetween = (min, max) => {
@@ -50,10 +61,11 @@ class ReelSet extends PureComponent {
 
   }
 
+  
   highlightScatter = () => {
-     
+    
   }
-
+  
   countScatter = () => {
     let scatter = 0;
     for(let lineIdx=0; lineIdx < 3; lineIdx++) {
@@ -61,22 +73,40 @@ class ReelSet extends PureComponent {
         let coords = Constants.LINES[lineIdx][coordIdx];
         let symbolAtCoords = this.spinResults[coords[0]] [coords[1]];
         
-
-          if (symbolAtCoords === "W") {
-            scatter += 1;
-          }
+        
+        if (symbolAtCoords === "W") {
+          scatter += 1;
+        }
       }
     }
     console.log('Scatter Count: ' , scatter);
     return scatter;
   }
+  
+  selectCoins = (state) => {
+    return state.coins.coins;
+  }
 
-  evaluateResults = () => {
+  selectBet = (state) => {
+    return state.bet.bet;
+  }
+
+  handleChange = () => {
+    this.setState({ credits: this.selectCoins(store.getState()), bet: this.selectBet(store.getState()) })
+  }
+
+
+  
+  evaluateResults = (scatter) => {
     let scatterCount = this.countScatter();
     this.winningLines = [];
     var streaksArray = [["T",1], ["J",1], ["Q",1], ["K",1], ["A",1], ["D",1], ["H",1], ["S",1], ["C",1], ["W",1]];
-    var streakFactor = [1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6];
-    
+    var streakFactor = [
+      [1.3, 1.4, 1.5, 1.7, 1.8, 1.9, 2, 2.5, 3, 1],
+      [1.8, 2.0, 2.2, 2.4, 2.5, 2.6, 2.8, 3.0, 4.0],
+      [3.3, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 5.0, 8.0]
+    ];
+
     for(let lineIdx=0; lineIdx < Constants.LINES.length; lineIdx++) {
       let currentKind = null;
       var streakHashMap = new Map(streaksArray);
@@ -95,26 +125,34 @@ class ReelSet extends PureComponent {
           }
         }
       }
-
-      for(let i=0; i<streaksArray.length; i++) {
-        if(streakHashMap.get(streaksArray[i][0]) >= 3) {
-          this.winningLines.push(lineIdx);
-          /* this.setState({ coins: this.state.bet * streakFactor[i] }) */
-          break;
+      let counter = -1;
+      for (let j = 3; j <=5; j++) {
+        counter++;
+        for(let i = 0; i < streaksArray.length; i++) {
+          if(streakHashMap.get(streaksArray[i][0]) === j) {
+            this.setState({ credits: this.state.credits + (this.state.bet * streakFactor[counter][i]) }, () => {
+              this.props.dispatch(updateCoins(this.state.credits));
+              this.props.dispatch(updateBet(this.state.bet));
+            });
+            this.winningLines.push(lineIdx);
+            break;
+          }
         }
       }
+    }
+
+    if (scatterCount >= 3) {
+      this.props.onScatter();
+      console.log("Scatter");
+    }
+      
+    console.log(this.winningLines);
+    if (scatter === false) {
+      this.highlightWinningLines(0);
+    }
   }
 
-  if (scatterCount >= 3) {
-    console.log("Scatter");
-    alert("Scatter");
-  }
-    
-  console.log(this.winningLines);
-  this.highlightWinningLines(0);
-  }
-
-  spin = () => {
+  spin = (scatter) => {
     this.reelsInMotion = Constants.REELS;
     for(let i=0; i<Constants.REELS; i++){
       this.reels[i].scrollByOffset(this.randomBetween(
@@ -125,11 +163,27 @@ class ReelSet extends PureComponent {
         this.spinResults[reelIdx] = results;
 
         if (this.reelsInMotion === 0){
-          this.evaluateResults();
-          this.props.onReady();
+          this.evaluateResults(scatter);
+          if (scatter === false) {
+            this.props.onReady();
+          }
         }
       });
     }
+  }
+
+
+  bonusSpins = () => {
+    setTimeout(() => {
+      this.spin(true)
+      setTimeout(() => {
+        this.spin(true)
+        setTimeout(() => {
+          this.spin(true)
+          this.props.onReady();
+        }, 2400)
+      }, 2400)
+    }, 1400)
   }
 
   onLayout = (e) => {
@@ -172,6 +226,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   coins: state.coins,
+  bet: state.bet
 });
 
-export default connect(mapStateToProps)(ReelSet);
+export default connect(mapStateToProps, undefined, undefined, {forwardRef: true})(ReelSet);

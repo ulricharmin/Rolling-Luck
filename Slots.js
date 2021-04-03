@@ -11,7 +11,9 @@ import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import * as Font from 'expo-font';
 
 import { connect } from 'react-redux';
+import { store } from './redux/store/store';
 import { updateCoins } from './redux/reducers/coins';
+import { updateBet } from './redux/reducers/bet';
 import { updateSpinner } from './redux/reducers/spinner';
 
 
@@ -19,19 +21,18 @@ class Slots extends PureComponent {
   static navigationOptions = { headerShown: false };
   constructor(props){
     super(props);
-    this.reelSet = null;
-
+    this.reelSet = React.createRef();
+    this.unsubscribe = store.subscribe(this.handleChange);
     this.state = {
-      bet: 10,
       spinButtonActive: true,
+      bet: this.props.bet.bet,
       credits: this.props.coins.coins,
       spinner: false,
-      popupVisible: false,
       infoVisible: false,
       betMinusButtonActive: true,
       betPlusButtonActive: true,
       fontLoading: true
-    }
+    };
   }
 
   async componentDidMount() {
@@ -43,8 +44,25 @@ class Slots extends PureComponent {
     this.setState({ fontLoading: false });
   }
 
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
+  selectCoins = (state) => {
+    return state.coins.coins;
+  }
+
+  selectBet = (state) => {
+    return state.bet.bet;
+  }
+
+  handleChange = () => {
+    this.setState({ credits: this.selectCoins(store.getState()), bet: this.selectBet(store.getState()) })
+  }
+
+
   spin = () => {
-    if (this.state.credits - this.state.bet <= 0) {
+    if (this.state.credits - this.state.bet < 0) {
       return;
     }
     this.setState({
@@ -53,7 +71,7 @@ class Slots extends PureComponent {
       betButtonActive: false,
       popupVisible: false,
     }, () => {
-      this.reelSet.spin();
+      this.reelSet.current.spin(false);
       this.props.dispatch(updateCoins(this.state.credits));
     });
   }
@@ -62,7 +80,7 @@ class Slots extends PureComponent {
     this.setState({
       spinButtonActive: true,
       betButtonActive: true
-    })
+    });
   }
 
   changeBet = (direction) => {
@@ -87,11 +105,33 @@ class Slots extends PureComponent {
     
     this.setState({
       bet: Constants.BETS[nextIndex]
+    }, () => {
+      this.props.dispatch(updateBet(this.state.bet));
     });
   }
 
   infoPopUp = () => {
     this.setState({ infoVisible: true });
+  }
+  closeInfo = () => {
+    this.setState({ infoVisible: false });
+  }
+
+  onScatter = () => {
+    this.setState({})
+    setTimeout(() => {
+      this.setState({
+        spinButtonActive: false,
+        betButtonActive: false
+       }, () => {
+         this.props.dispatch(updateCoins(this.state.credits));
+       });
+        if (this.state.spinButtonActive === false && this.state.betButtonActive === false) {
+          this.reelSet.current.bonusSpins();
+        } else {
+          console.log("Fehler")
+        }
+    }, 1000)
   }
   
   render() {
@@ -104,26 +144,37 @@ class Slots extends PureComponent {
     }
       return (
       <View style={styles.container}>
+      <Modal visible={this.state.infoVisible} transparent={true} >
+        <View style={styles.infoView}>
+          <View style={styles.infoBox} >
+            <TouchableButton status="active" image="closeInfo" style={styles.closeInfo} onPress={this.closeInfo}/>
+            <Image source={Images.infoImage} style={styles.infoModal} />
+          </View>
+        </View>
+        <View>
+        </View>
+      </Modal>
       <StatusBar hidden={true} />
           <View style={styles.topBar}>
             <Image style={styles.backgroundTopBar} source={Images.backgroundTop}/>
             <TouchableSwitch status="active" style={styles.buttonSound} image="buttonSound" />
             <TouchableButton status="active" onPress={() => this.props.navigation.navigate('Home')} style={styles.buttonHome} image="buttonHome"  />
             <TouchableButton status="active" style={styles.buttonInfo} image="buttonInfo" onPress={this.infoPopUp} />
+            <Text style={styles.creditValue}>{this.state.credits}</Text>
           </View>
           <Image style={styles.mainBackground} source={Images.mainBackground} resizeMode="stretch" />
           <Image style={styles.background} source={Images.slotsBackground} resizeMode="stretch" />
           <View style={styles.main}>
             <View style={styles.mainBox}>
               
-              <ReelSet ref={(ref) => {this.reelSet = ref;}} onReady={this.onReelsetReady} />
-
+              <ReelSet ref={this.reelSet} onReady={this.onReelsetReady} onScatter={this.onScatter} />
+              
             </View>
           </View>
           <View style={styles.bottomBar}>
             <Image style={styles.backgroundBottomBar} source={Images.backgroundBottom} resizeMode="stretch" />
             <TouchableButton onPress={this.spin} style={styles.buttonSpin} inactive={!this.state.spinButtonActive} image="buttonSpin" />
-            <Text style={styles.creditValue}>{this.state.credits}</Text>
+            <Text style={styles.creditValue}></Text>
             <View style={styles.betContainer}>
               <TouchableButton
                 onPress={() => { this.changeBet(-1); } }
@@ -170,17 +221,21 @@ const styles = StyleSheet.create({
   }, 
   mainBox: {
     position: 'absolute',
-    width: scale(300),
-    height: scale(195),
-    alignSelf: 'center',
-    justifyContent: 'center',
-    top: verticalScale(-5),
+    width: scale(305),
+    height: scale(190),
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   main: {
     width: scale(305),
     height: scale(237),
     padding: scale(10),
-    top: verticalScale(15),
+    top: verticalScale(10),
+    bottom: 0,
+    left: 0,
+    right: 0,
     alignSelf: 'center'
   },
   mainBackground: {
@@ -193,7 +248,8 @@ const styles = StyleSheet.create({
   },
   bottomBar: {
     width: Constants.MAX_WIDTH,
-    height: scale(255),
+    top: -15,
+    height: scale(260),
     justifyContent: 'center'
   },
   backgroundBottomBar: {
@@ -272,13 +328,33 @@ const styles = StyleSheet.create({
     left: moderateScale(20)
   },
   infoModal: {
-
+    width: scale(270),
+    height: scale(410),
+  },
+  infoBox: {
+    width: scale(270),
+    height: scale(410),
+    alignSelf: 'center',
+    top: verticalScale(150)
+  },
+  infoView: {
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    height: '100%',
+    width: '100%'
+  },
+  closeInfo: {
+    position: 'absolute',
+    width: scale(35),
+    height: scale(35),
+    right: 0,
+    zIndex: 2,
   }
 });
 
 const mapStateToProps = state => ({
   coins: state.coins,
-  spinner: state.spinner
+  spinner: state.spinner,
+  bet: state.bet
 });
 
 export default connect(mapStateToProps)(Slots);
