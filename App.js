@@ -1,15 +1,58 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { PureComponent } from 'react';
+import { StyleSheet } from 'react-native';
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator, TransitionPresets } from 'react-navigation-stack';
+import Home from './Home';
+import Slots from './Slots';
+import Shop from './Shop';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/store/store';
+import { Audio } from 'expo';
+import * as Font from 'expo-font';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+export default class App extends PureComponent {
+  constructor(props){
+    super(props);
+  }
+
+  render() {
+
+    return(
+        <Provider store={store}>
+          <PersistGate persistor={persistor}>
+            <AppContainer />
+          </PersistGate>
+        </Provider>
+    )
+  }
 }
+
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: Home
+
+  },
+  Slots: {
+    screen: Slots
+
+  },
+  Shop: {
+    screen: Shop
+  },
+
+},{
+        initialRouteName: "Home",
+        headerMode: 'none',
+        defaultNavigationOptions: {
+          ...TransitionPresets.SlideFromRightIOS
+        }
+});
+
+const AppContainer = createAppContainer(AppNavigator);
 
 const styles = StyleSheet.create({
   container: {

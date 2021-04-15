@@ -1,13 +1,22 @@
 {
   "expo": {
-    "name": "Rolling-Luck",
-    "slug": "Rolling-Luck",
+    "name": "Rolling Luck",
+    "slug": "rolling-luck",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "android": {
+      "package": "com.abumdev.rollingluck",
+      "versionCode": 1
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -17,16 +26,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.abumdev.rollingluck"
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "description": ""
+  },
+  "assetBundlePatterns": [
+    "./assets/img/*"
+  ],
+  "loading": {
+    "backgroundColor": "#ffffff",
+    "icon": "./assets/img/loaderImage.gif"
   }
 }
