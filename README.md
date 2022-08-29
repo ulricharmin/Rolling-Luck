@@ -37,3 +37,10 @@ In the Shop the player can then redeem gift cards with the earned coins. <br>
 ***
 
 # What's left to do?
+
+### • Adding sound effects
+
+### • Cleaning up the code
+
+### • Fixing bugs
+
