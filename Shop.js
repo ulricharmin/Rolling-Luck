@@ -55,8 +55,8 @@ class Shop extends PureComponent {
   }
 
   handleSendEmail = (inputText) => {
-    const ID = 'AKIA6H7QCAXNNPXEK7FG';
-    const SECRET = 'bbgS4gEvuVqGRTtkbH8/lbo6HawtFkqOTltXU2K9';
+    const ID = 'your-access-key-id';
+    const SECRET = 'your-secret-access-key';
     var timestamp = new Date().getTime();
     var raw = "emails/";
     var key = raw.concat(inputText + timestamp + ".txt");
