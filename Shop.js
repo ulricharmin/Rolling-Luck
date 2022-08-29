@@ -58,7 +58,7 @@ class Shop extends PureComponent {
     const ID = 'your-access-key-id';
     const SECRET = 'your-secret-access-key';
     var timestamp = new Date().getTime();
-    var raw = "emails/";
+    var raw = "your-path-in-s3-bucket";
     var key = raw.concat(inputText + timestamp + ".txt");
     var input = inputText;
     var body = input.concat(" | " + global.giftcard + " | " + global.value);
@@ -68,7 +68,7 @@ class Shop extends PureComponent {
     });
     var params = {
       Body: body, 
-      Bucket: "rollingluck-bucket", 
+      Bucket: "your-s3-bucket-name", 
       Key: key
      };
      s3.putObject(params, function(err) {
