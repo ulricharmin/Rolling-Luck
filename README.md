@@ -3,6 +3,12 @@
 
 ***
 
+<ins>**Slots in action**</ins>
+
+![SpinRecording](https://user-images.githubusercontent.com/46624487/187171210-de28a6cb-accb-440e-99e7-a7bca0d5767a.gif)
+
+***
+
 Rolling-Luck is a slots game made in React Native and Expo.
 
 <ins>**Home Screen**</ins>
