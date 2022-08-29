@@ -21,7 +21,7 @@ There he can multiply his bet with the following factors:
 
 <img src="https://user-images.githubusercontent.com/46624487/187168044-0be1eb8e-7906-4e3d-9082-0ef66521dd98.png" width="200"/>
 
-In the Shop the player can then redeem gift cards with the earned coins.
+In the Shop the player can then redeem gift cards with the earned coins. <br>
 *Only the cards that the user can afford are be clickable. The rest is greyed out.*
 
 <ins>**Shop Screen**</ins>
