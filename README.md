@@ -42,6 +42,8 @@ In the Shop the player can then redeem gift cards with the earned coins. <br>
 
 ### • Adding table for winning chances
 
+### • Fix responsive layouts
+
 ### • Cleaning up the code
 
 ### • Fixing bugs
