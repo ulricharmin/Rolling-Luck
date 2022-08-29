@@ -3,123 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a6becf16-261c-40cb-999a-a3296f9a446d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/Shop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Slots.js" beforeDir="false" afterPath="$PROJECT_DIR$/Slots.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Images.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/Images.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+ und - button.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/135x135/buttonBetMinusInacitve.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/135x135/buttonBetMinusPressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/135x135/buttonBetPlusInactive.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/135x135/buttonBetPlusPressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/45x45/+ button gedrückt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/45x45/+ button inakktiv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/45x45/+ button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/45x45/- button gedrückt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/45x45/- button inakktiv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/45x45/- button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/90x90/+ button gedrückt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/90x90/+ button inakktiv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/90x90/+ button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/90x90/- button gedrückt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/90x90/- button inakktiv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/+-/90x90/- button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x1/Button_Coming Soon@x1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x1/Button_GetGifts@x1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x1/Button_Slot@x1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x1/Button_Werbung@x1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x2/Button_Coming Soon@x2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x2/Button_GetGifts@x2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x2/Button_Slot@x2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x2/Button_Werbung@x2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x3/Button_Coming Soon@x3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x3/Button_GetGifts@x3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x3/Button_Slot@x3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homebuttons/x3/Button_Werbung@x3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homescreen@x1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/Homescreen@x2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/Homescreen/layout.pdn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/Ablage/shoppage button.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/a.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/a.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ad_button.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ad_button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ad_button_inactive.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ad_button_inactive.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ad_button_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ad_button_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/amazon_button_10€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/amazon_button_10€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/amazon_button_10€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/amazon_button_10€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/amazon_button_15€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/amazon_button_15€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/amazon_button_15€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/amazon_button_15€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/amazon_button_5€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/amazon_button_5€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/amazon_button_5€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/amazon_button_5€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/backgrnd.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/backgrnd.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/bottomBar.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/bottomBar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/buttonBetMinus.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/buttonBetMinus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/buttonBetMinusInacitve.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/buttonBetMinusInacitve.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/buttonBetMinusPressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/buttonBetMinusPressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/buttonBetPlus.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/buttonBetPlus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/buttonBetPlusInactive.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/buttonBetPlusInactive.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/buttonBetPlusPressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/buttonBetPlusPressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_back.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_back.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_back_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_back_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_cs.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_cs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_cs_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_cs_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_home.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_home.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_home_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_home_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_info.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_info.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_info_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_info_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_shop.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_shop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_shop_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_shop_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_slots.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_slots.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_slots_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_slots_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_sound.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_sound.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/button_sound_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/button_sound_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/club.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/club.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/diamond.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/diamond.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/entfernungen.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/gp_button_10€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/gp_button_10€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/gp_button_10€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/gp_button_10€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/gp_button_15€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/gp_button_15€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/gp_button_15€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/gp_button_15€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/gp_button_5€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/gp_button_5€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/gp_button_5€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/gp_button_5€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/heart.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/heart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/home_background.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/home_background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/j.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/j.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/k.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/k.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/loaderImage.gif" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/loaderImage.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/mainBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/mainBackground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/popupImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/popupImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ps_button_10€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ps_button_10€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ps_button_10€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ps_button_10€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ps_button_15€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ps_button_15€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ps_button_15€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ps_button_15€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ps_button_5€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ps_button_5€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ps_button_5€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ps_button_5€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/q.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/q.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/spades.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/spades.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/spinButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/spinButton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/spinButtonInactive.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/spinButtonInactive.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/spinButtonPushed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/spinButtonPushed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/ten.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/ten.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/topBar.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/topBar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/whitejeton.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/whitejeton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/xbox_button_10€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/xbox_button_10€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/xbox_button_10€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/xbox_button_10€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/xbox_button_15€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/xbox_button_15€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/xbox_button_15€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/xbox_button_15€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/xbox_button_5€.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/xbox_button_5€.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/xbox_button_5€_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/xbox_button_5€_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/AdMobRewardedComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/AdMobRewardedComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Reel.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Reel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ReelSet.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ReelSet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Symbol.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Symbol.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/TouchableButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/TouchableButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/TouchableSwitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/TouchableSwitch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/redux/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +30,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/ReelSet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="-34">
               <caret line="103" column="24" selection-start-line="103" selection-start-column="24" selection-end-line="103" selection-end-column="24" />
             </state>
           </provider>
@@ -157,9 +41,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="407" />
-    <option name="y" value="87" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-303" />
+    <option name="y" value="112" />
     <option name="width" value="980" />
     <option name="height" value="1025" />
   </component>
@@ -168,8 +52,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,6 +68,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -219,10 +103,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-242" y="90" width="784" height="820" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.060806345" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.123159304" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -232,7 +116,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="3" side_tool="true" visible="true" weight="0.32577905" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="3" side_tool="true" visible="true" weight="0.33430234" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
@@ -251,7 +135,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/ReelSet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="-34">
           <caret line="103" column="24" selection-start-line="103" selection-start-column="24" selection-end-line="103" selection-end-column="24" />
         </state>
       </provider>
