@@ -33,3 +33,7 @@ In the Shop the player can then redeem gift cards with the earned coins. <br>
 <ins>**Shop Screen**</ins>
 
 <img src="https://user-images.githubusercontent.com/46624487/187170213-79f8797e-9522-4503-83b8-3229d4342471.png" width="200"/>
+
+***
+
+# What's left to do?
