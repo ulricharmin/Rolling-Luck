@@ -29,7 +29,7 @@ class AdMobRewardedComponent extends Component {
 
  createAndLoadRewardedAd = async () => {
     await setTestDeviceIDAsync("EMULATOR");
-    AdMobRewarded.setAdUnitID("ca-app-pub-3940256099942544/5224354917");
+    AdMobRewarded.setAdUnitID("your-ad-id");
 
     AdMobRewarded.addEventListener("rewardedVideoDidLoad", () => {
       this.setState({ loadedAd: true })
